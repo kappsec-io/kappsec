@@ -1,0 +1,24 @@
+# permissions for end users to edit sqlmaps.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: sqlmap-editor-role
+rules:
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - sqlmaps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - sqlmaps/status
+  verbs:
+  - get

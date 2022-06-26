@@ -1,0 +1,85 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - sqlmaps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - sqlmaps/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - sqlmaps/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zapopenapis
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zapopenapis/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zapopenapis/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zaps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zaps/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zaps/status
+  verbs:
+  - get
+  - patch
+  - update

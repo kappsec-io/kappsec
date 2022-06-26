@@ -1,0 +1,6 @@
+apiVersion: scan.kappsec.io/v1
+kind: ZapOpenAPI
+metadata:
+  name: zapopenapi-sample
+spec:
+  # TODO(user): Add fields here

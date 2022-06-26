@@ -3,4 +3,32 @@ layout:
 - go.kubebuilder.io/v3
 projectName: kappsec
 repo: github.com/kappsec-io/kappsec
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: kappsec.io
+  group: scan
+  kind: Sqlmap
+  path: github.com/kappsec-io/kappsec/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: kappsec.io
+  group: scan
+  kind: Zap
+  path: github.com/kappsec-io/kappsec/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: kappsec.io
+  group: scan
+  kind: ZapOpenAPI
+  path: github.com/kappsec-io/kappsec/api/v1
+  version: v1
 version: "3"
