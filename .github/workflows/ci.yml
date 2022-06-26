@@ -48,39 +48,39 @@ jobs:
       #   run: |
       #     make docker-analyzer
 
-      - name: Create k8s Kind Cluster
-        uses: helm/kind-action@v1.2.0
-        with:
-          cluster_name: "acceptance-test"
+      # - name: Create k8s Kind Cluster
+      #   uses: helm/kind-action@v1.2.0
+      #   with:
+      #     cluster_name: "acceptance-test"
 
-      - name: Load Docker images to kind
-        run: |
-          kind load docker-image --name acceptance-test banzaicloud/kappsec-operator:latest
-          # kind load docker-image --name acceptance-test banzaicloud/kappsec-analyzer:latest
+      # - name: Load Docker images to kind
+      #   run: |
+      #     kind load docker-image --name acceptance-test banzaicloud/kappsec-operator:latest
+      #     # kind load docker-image --name acceptance-test banzaicloud/kappsec-analyzer:latest
 
-      - name: Deploying cert-manager
-        run: |
-          kubectl create namespace cert-manager
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo update
-          kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.crds.yaml
-          helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.1.0
+      # - name: Deploying cert-manager
+      #   run: |
+      #     kubectl create namespace cert-manager
+      #     helm repo add jetstack https://charts.jetstack.io
+      #     helm repo update
+      #     kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.crds.yaml
+      #     helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.1.0
 
-      - name: Check cert-manager webhook
-        run: |
-          timeout 100s hack/check-state.sh
+      # - name: Check cert-manager webhook
+      #   run: |
+      #     timeout 100s hack/check-state.sh
 
-      - name: Deploying kappsec-operator
-        run: |
-          kubectl create ns kappsec-operator-system
-          make deploy
+      # - name: Deploying kappsec-operator
+      #   run: |
+      #     kubectl create ns kappsec-operator-system
+      #     make deploy
 
-      - name: Deploy kappsec resource
-        run: |
-          kubectl create ns zaproxy
-          kubectl apply -f config/samples/security_v1alpha1_kappsec.yaml -n zaproxy
+      # - name: Deploy kappsec resource
+      #   run: |
+      #     kubectl create ns zaproxy
+      #     kubectl apply -f config/samples/security_v1alpha1_kappsec.yaml -n zaproxy
 
-      - name: Deploy test applications
-        run: |
-          kubectl create ns test
-          kubectl apply -f config/samples/test_service.yaml -n test
+      # - name: Deploy test applications
+      #   run: |
+      #     kubectl create ns test
+      #     kubectl apply -f config/samples/test_service.yaml -n test
