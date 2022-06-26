@@ -1,0 +1,6 @@
+domain: kappsec.io
+layout:
+- go.kubebuilder.io/v3
+projectName: kappsec
+repo: github.com/kappsec-io/kappsec
+version: "3"
