@@ -1,0 +1,24 @@
+# permissions for end users to edit zaps.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: zap-editor-role
+rules:
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zaps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - scan.kappsec.io
+  resources:
+  - zaps/status
+  verbs:
+  - get

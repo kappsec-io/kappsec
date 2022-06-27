@@ -1,0 +1,6 @@
+apiVersion: scan.kappsec.io/v1
+kind: Sqlmap
+metadata:
+  name: sqlmap-sample
+spec:
+  # TODO(user): Add fields here
