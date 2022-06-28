@@ -5,8 +5,15 @@
 // TODO(user): An in-depth paragraph about your project and overview of use
 
 ## Getting Started
-You’ll need a Kubernetes cluster to run against. You can use [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or run against a remote cluster.
+You’ll need a Kubernetes cluster to run against. You can use [K3d](https://k3d.io) to get a local cluster for testing, or run against a remote cluster.
 **Note:** Your controller will automatically use the current context in your kubeconfig file (i.e. whatever cluster `kubectl cluster-info` shows).
+
+### Create a local cluster
+To create a k3d cluster:
+```
+make setup-dev
+```
+> NOTE: if you rerun it, your existing cluster will be removed
 
 ### Running on the cluster
 1. Install Instances of Custom Resources:
